@@ -41,6 +41,9 @@ angular.module('insight')
     };
   })
   .directive('clipCopy', function() {
+    if (!(typeof ZeroClipboard !== 'undefined' && typeof ZeroClipboard.config !== 'undefined')) {
+      return { restric: 'A', template: '<span></span>' };
+    }
     ZeroClipboard.config({
       moviePath: '/lib/zeroclipboard/ZeroClipboard.swf',
       trustedDomains: ['*'],
